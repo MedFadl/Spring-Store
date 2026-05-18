@@ -1,4 +1,4 @@
-package com.medhat.sore;
+package com.medhat.store;
 
 
 import org.springframework.stereotype.Service;
