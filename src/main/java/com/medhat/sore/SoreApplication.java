@@ -8,7 +8,7 @@ public class SoreApplication {
 
     public static void main(String[] args) {
         //SpringApplication.run(SoreApplication.class, args);
-        var orderService = new OrderService(new VCashPaymentService());
+        var orderService = new OrderService(new WaffarhaPaymentService());
         orderService.placeOrder();
     }
 
