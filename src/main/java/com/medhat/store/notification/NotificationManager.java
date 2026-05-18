@@ -1,4 +1,4 @@
-package com.medhat.store.exercise;
+package com.medhat.store.notification;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

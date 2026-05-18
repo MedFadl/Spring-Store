@@ -1,6 +1,6 @@
 package com.medhat.store;
 
-import com.medhat.store.exercise.NotificationService;
+import com.medhat.store.notification.NotificationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
