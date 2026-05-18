@@ -1,8 +1,10 @@
 package com.medhat.sore;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("Waffarha")
+@Primary
 public class WaffarhaPaymentService implements PaymentService {
     @Override
     public void processPayment(double amount) {

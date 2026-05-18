@@ -1,5 +1,9 @@
 package com.medhat.sore;
 
+
+import org.springframework.stereotype.Service;
+
+@Service("VCash")
 public class VCashPaymentService implements PaymentService {
 
     @Override

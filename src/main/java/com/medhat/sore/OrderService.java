@@ -1,6 +1,7 @@
 package com.medhat.sore;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class OrderService {
 
 
     @Autowired //This makes it a default for spring to inject instead of using default constructor. (Only used in multiple constructors).
-    public OrderService(PaymentService paymentService) {
+    public OrderService(@Qualifier("VCash") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
     public void placeOrder() {
