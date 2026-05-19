@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: store
+
+server:
+  port: 8080
+
+app:
+  page:
+    size: 10
+
+vcash:
+  apiUrl: https://vcash.com/api/v1/
+  enabled: true
+  timeout: 10000
+  supportedCurrencies: USD,EUR,EGP
+
+waffarha:
+  apiUrl: https://waffarha.com/api/v1/
+  enabled: true
+  timeout: 10000
+  supportedCurrencies: USD,EUR,EGP
+
+payment:
+  default: waffarha

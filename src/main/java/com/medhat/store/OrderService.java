@@ -6,16 +6,17 @@ import org.springframework.stereotype.Service;
 
 
 // Service is the same as component, but it is used for business logic
-@Service
+//@Service
 public class OrderService {
     private PaymentService paymentService;
 
     public OrderService() {
     }
 
-
-    @Autowired //This makes it a default for spring to inject instead of using default constructor. (Only used in multiple constructors).
-    public OrderService(@Qualifier("VCash") PaymentService paymentService) {
+    //This makes it a default for spring to inject instead of using default constructor. (Only used in multiple constructors).
+    //@Autowired
+    //@Qualifier("Waffarha")
+    public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
     public void placeOrder() {
