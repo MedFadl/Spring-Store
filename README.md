@@ -39,11 +39,11 @@ The main goal is to bridge the gap between "knowing Java" and "building professi
 
 My current path is:
 
-1.  Master Spring Core concepts (Beans, IoC, DI)
-2.  Understand the Spring Bean Lifecycle
-3.  Get comfortable with Spring MVC and REST controllers
-4.  Learn how to use Spring Boot Starters and Auto-configuration
-5.  Move into Spring Data JPA and database integration
+1.  Master Spring Core concepts (Beans, IoC, DI) [DONE]
+2.  Understand the Spring Bean Lifecycle [DONE]
+3.  Get comfortable with Spring MVC and REST controllers [IN PROGRESS]
+4.  Learn how to use Spring Boot Starters and Auto-configuration [DONE]
+5.  Move into Spring Data JPA and database integration [UPCOMING]
 6.  Implement validation and error handling
 7.  Learn Spring Security for authentication and authorization
 8.  Explore testing Spring Boot applications (JUnit, Mockito)
@@ -54,34 +54,36 @@ My current path is:
 
 ## What I Have Covered So Far
 
-I am currently in the early stages of Spring Boot, focusing on the core mechanics:
+I am currently moving from Spring Core fundamentals to Data and Persistence:
 
 * **Inversion of Control (IoC) & Beans**: Understanding how Spring manages object creation and lifecycle.
-* **Dependency Injection (DI)**:
-    * Constructor Injection (The recommended way!)
-    * Setter Injection
-    * Field Injection (and why to avoid it)
+* **Dependency Injection (DI)**: Constructor, Setter, and Field injection.
+* **Bean Lifecycle**: Using `@PostConstruct` and `@PreDestroy` to manage bean initialization and cleanup.
+* **Bean Scopes & Lazy Loading**: Mastering `Singleton` vs `Prototype` and using `@Lazy` for performance optimization.
 * **Spring Annotations**:
-    * `@SpringBootApplication`: The entry point.
-    * `@Component`, `@Service`, `@Controller`, `@Repository`: Identifying Spring-managed beans.
-    * `@Autowired`: Automating dependency wiring.
-    * `@Primary` & `@Qualifier`: Handling multiple beans of the same type.
-    * `@Value`: Injecting properties from `application.properties`.
-    * `@RequestMapping`: Mapping web requests.
-* **Web Basics**: Setting up simple controllers and serving static content (`index.html`).
-* **Project Structure**: Following standard Maven and Spring Boot conventions.
+    * `@SpringBootApplication`, `@Component`, `@Service`, `@Controller`, `@Repository`.
+    * `@Autowired`, `@Primary`, `@Qualifier`.
+    * `@Value`, `@Configuration`, `@Bean`.
+    * `@RequestMapping`.
+* **Configuration**: Moving from `application.properties` to structured `application.yaml`.
+* **Layered Architecture & Repository Pattern**: Practicing clean code by separating concerns into Controllers, Services, and Repositories (using an In-Memory implementation for now).
+* **Web Basics**: Simple controllers and static content.
 
 ---
 
 ## Project Highlights
 
 ### IoC and Dependency Injection
-I've practiced how to let Spring handle the "wiring" of the application. For example, using `@Qualifier` to choose between different payment services or notification methods without changing the business logic.
+I've practiced how to let Spring handle the "wiring" of the application. I've explored both annotation-based wiring and manual Java-based configuration using `@Configuration` and `@Bean`.
+
+### Bean Lifecycle and Scopes
+Implemented lifecycle hooks (`@PostConstruct`, `@PreDestroy`) and experimented with different bean scopes like `Prototype` to understand how Spring manages object instances.
 
 ### Layered Architecture
 Even in these early examples, I am practicing separating concerns:
 - **Web Layer**: Controllers to handle HTTP requests.
-- **Service Layer**: Business logic (like `OrderService`).
+- **Service Layer**: Business logic (like `OrderService` and `UserService`).
+- **Data Layer**: Initializing the repository pattern with `InMemoryUserRepository`.
 - **Notification Layer**: Abstracting communication (SMS, Email).
 
 ---
@@ -99,37 +101,53 @@ store/
 │  │  │     └─ medhat/
 │  │  │        └─ store/
 │  │  │           ├─ StoreApplication.java       (Entry Point)
+│  │  │           ├─ AppConfig.java              (Java-Based Configuration)
 │  │  │           ├─ HomeController.java         (Web Controller)
-│  │  │           ├─ OrderService.java           (Business Logic)
+│  │  │           ├─ OrderService.java           (Lifecycle & Scopes)
+│  │  │           ├─ HeavyResource.java          (Lazy Initialization)
 │  │  │           ├─ PaymentService.java         (Interface)
 │  │  │           ├─ VCashPaymentService.java
 │  │  │           ├─ WaffarhaPaymentService.java
-│  │  │           └─ notification/               (Sub-package)
-│  │  │              ├─ NotificationService.java (Interface)
-│  │  │              ├─ EmailNotificationService.java
-│  │  │              ├─ SMSNotificationService.java
-│  │  │              └─ NotificationManager.java
+│  │  │           ├─ notification/               (Sub-package)
+│  │  │           │  ├─ NotificationService.java
+│  │  │           │  ├─ EmailNotificationService.java
+│  │  │           │  ├─ SMSNotificationService.java
+│  │  │           │  └─ NotificationManager.java
+│  │  │           └─ user/                       (User Management Layer)
+│  │  │              ├─ User.java
+│  │  │              ├─ UserRepository.java      (Repository Interface)
+│  │  │              ├─ InMemoryUserRepository.java
+│  │  │              └─ UserService.java
 │  │  └─ resources/
-│  │     ├─ application.properties               (Config)
+│  │     ├─ application.yaml                     (Structured Configuration)
 │  │     └─ static/
 │  │        ├─ index.html
 │  │        └─ Notes.md                          (Personal Study Notes)
-│  └─ test/                                      (Upcoming: Unit Tests)
+│  └─ test/
+│     └─ java/
+│        └─ com/
+│           └─ medhat/
+│              └─ store/
+│                 └─ SoreApplicationTests.java   (Context Loading Test)
 ```
 
 ---
 
 ## Learning Roadmap
 
-### Current Stage: Spring Boot Fundamentals
+### Current Stage: Spring Core & Fundamentals
 * [x] Spring Boot Project Setup (Maven)
 * [x] Understanding IoC and Beans
-* [x] Dependency Injection (Constructor vs Setter)
-* [x] Core Annotations
+* [x] Dependency Injection (Constructor, Setter, Field)
+* [x] Bean Lifecycle hooks (`@PostConstruct`, `@PreDestroy`)
+* [x] Bean Scopes (Singleton, Prototype) & Lazy Loading
+* [x] Java-Based Configuration (`@Configuration`, `@Bean`)
+* [x] Externalized Configuration (Properties & YAML)
 * [x] Basic Controllers and Request Mapping
-* [x] Externalized Configuration (`@Value`)
 
-### Next Stage: Data and Persistence
+### Next Stage: Data and Persistence (In Progress)
+* [x] Understanding the Repository Pattern
+* [x] Implementing In-Memory Repositories
 * [ ] Introduction to Spring Data JPA
 * [ ] Working with H2 and MySQL
 * [ ] Creating Entities and Repositories
