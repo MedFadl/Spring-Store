@@ -16,11 +16,14 @@
 
 # Bean & Dependency Injection
 
-| Annotation | Purpose |
-|---|---|
-| `@Autowired` | Automatically injects dependencies/beans. Usually used with constructor injection. |
-| `@Primary` | Marks a bean as the default bean when multiple beans of the same type exist. |
-| `@Qualifier` | Selects a specific bean by name when multiple beans exist. |
+| Annotation   | Purpose                                                                                 |
+|--------------|-----------------------------------------------------------------------------------------|
+| `@Autowired` | Automatically injects dependencies/beans. Usually used with constructor injection.      |
+| `@Primary`   | Marks a bean as the default bean when multiple beans of the same type exist.            |
+| `@Qualifier` | Selects a specific bean by name when multiple beans exist.                              |
+| `@Bean`      | identifies the method as a bean (method should be noun and it initialize                |
+| `@Lazy`      | Make a bean or a component LAZY (not loading untill needed                              |
+| `@Scope`     | Defines the scope / lifecycle of a bean. (e.g., singleton, prototype, request, session) |
 
 ---
 

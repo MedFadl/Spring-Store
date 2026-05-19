@@ -18,6 +18,7 @@ public class OrderService {
     //@Qualifier("Waffarha")
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
+        System.out.println("OrderService Created");
     }
     public void placeOrder() {
         paymentService.processPayment(100);
