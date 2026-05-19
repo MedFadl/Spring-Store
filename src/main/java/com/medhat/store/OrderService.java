@@ -1,5 +1,7 @@
 package com.medhat.store;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,17 @@ public class OrderService {
         this.paymentService = paymentService;
         System.out.println("OrderService Created");
     }
+    @PostConstruct
+    public void init(){
+        System.out.println("OrderService Initialized");
+    }
+
+    @PreDestroy // but we need to close context first we can use that with CONFIGURABLE APPLICATION CONTEXT!! AND THEN .CLOSE IT!!
+    public void cleanup(){
+        System.out.println("Cleaning connections / file handles and so on");
+    }
+
+
     public void placeOrder() {
         paymentService.processPayment(100);
     }

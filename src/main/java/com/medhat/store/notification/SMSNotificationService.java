@@ -9,4 +9,9 @@ public class SMSNotificationService implements NotificationService{
         System.out.println("SMS Notification Service");
         System.out.println("Message: " + message);
     }
+
+    @Override
+    public void sendRegistrationNotification(String message, String recipientEmail) {
+
+    }
 }
