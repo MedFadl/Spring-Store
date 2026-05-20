@@ -1,6 +1,10 @@
 spring:
   application:
     name: store
+  datasource:
+    url: jdbc:mariadb://localhost:3306/Store?createDatabaseIfNotExist=true
+    username: root
+    password: admin
 
 server:
   port: 8080
