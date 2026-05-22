@@ -76,6 +76,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>12.6.1</version>
+                <configuration>
+                    <url>jdbc:mariadb://localhost:3306/Store?createDatabaseIfNotExist=true</url>
+                    <user>root</user>
+                    <password>admin</password>
+                    <cleanDisabled>false</cleanDisabled>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
