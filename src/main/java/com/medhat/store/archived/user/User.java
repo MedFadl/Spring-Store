@@ -1,4 +1,4 @@
-package com.medhat.store.user;
+package com.medhat.store.archived.user;
 
 public class User {
     Long id;

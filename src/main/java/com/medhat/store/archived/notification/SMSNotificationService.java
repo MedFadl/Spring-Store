@@ -1,4 +1,4 @@
-package com.medhat.store.notification;
+package com.medhat.store.archived.notification;
 
 import org.springframework.stereotype.Service;
 

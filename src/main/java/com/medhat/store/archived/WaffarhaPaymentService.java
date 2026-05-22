@@ -1,31 +1,29 @@
-package com.medhat.store;
-
+package com.medhat.store.archived;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
-//@Service("VCash")
-public class VCashPaymentService implements PaymentService {
-    @Value("${vcash.apiUrl}")
+//@Service("Waffarha")
+//@Primary
+public class WaffarhaPaymentService implements PaymentService {
+    @Value("${waffarha.apiUrl}")
     private String apiUrl;
 
-    @Value("${vcash.enabled}")
+    @Value("${waffarha.enabled}")
     private boolean isEnabled;
 
-    @Value("${vcash.timeout:3000}")
+    @Value("${waffarha.timeout:3000}")
     private int timeout;
 
-    @Value("${vcash.supportedCurrencies}")
+    @Value("${waffarha.supportedCurrencies}")
     private List<String> supportedCurrencies;
 
     @Override
     public void processPayment(double amount) {
-        System.out.println("VCash Payment Service");
+        System.out.println("waffarha Payment Service");
         if (!isEnabled) {
-            System.out.println("VCash payment service is disabled");
+            System.out.println("waffarha payment service is disabled");
             return;
         }
         System.out.println("API URL: " + apiUrl);
@@ -33,6 +31,5 @@ public class VCashPaymentService implements PaymentService {
         System.out.println("Timeout: " + timeout);
         System.out.println("Supported Currencies: " + supportedCurrencies);
         System.out.println("Amount: " + amount);
-
     }
 }

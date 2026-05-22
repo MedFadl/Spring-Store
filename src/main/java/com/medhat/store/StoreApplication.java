@@ -1,8 +1,8 @@
 package com.medhat.store;
 
-import com.medhat.store.notification.NotificationService;
-import com.medhat.store.user.User;
-import com.medhat.store.user.UserService;
+import com.medhat.store.archived.OrderService;
+import com.medhat.store.archived.user.User;
+import com.medhat.store.archived.user.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

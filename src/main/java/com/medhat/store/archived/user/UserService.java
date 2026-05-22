@@ -1,7 +1,7 @@
-package com.medhat.store.user;
+package com.medhat.store.archived.user;
 
 
-import com.medhat.store.notification.NotificationService;
+import com.medhat.store.archived.notification.NotificationService;
 import org.springframework.stereotype.Service;
 
 @Service

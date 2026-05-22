@@ -1,11 +1,11 @@
-package com.medhat.store;
+package com.medhat.store.archived;
 
 
-import com.medhat.store.notification.EmailNotificationService;
-import com.medhat.store.notification.NotificationService;
-import com.medhat.store.user.InMemoryUserRepository;
-import com.medhat.store.user.UserRepository;
-import com.medhat.store.user.UserService;
+import com.medhat.store.archived.notification.EmailNotificationService;
+import com.medhat.store.archived.notification.NotificationService;
+import com.medhat.store.archived.user.InMemoryUserRepository;
+import com.medhat.store.archived.user.UserRepository;
+import com.medhat.store.archived.user.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

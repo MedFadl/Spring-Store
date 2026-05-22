@@ -1,4 +1,4 @@
-package com.medhat.store;
+package com.medhat.store.archived;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;

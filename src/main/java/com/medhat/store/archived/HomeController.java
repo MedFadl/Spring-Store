@@ -1,4 +1,4 @@
-package com.medhat.store;
+package com.medhat.store.archived;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

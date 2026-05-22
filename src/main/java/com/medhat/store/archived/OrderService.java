@@ -1,10 +1,7 @@
-package com.medhat.store;
+package com.medhat.store.archived;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 
 
 // Service is the same as component, but it is used for business logic
