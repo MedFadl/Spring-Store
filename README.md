@@ -6,7 +6,7 @@
 >
 > I use AI as a **learning assistant** to understand concepts, review ideas, get feedback, and improve my problem-solving skills — not to skip the learning process.
 >
-> The goal of this playground is to **master Spring Boot**, understand backend architecture, and grow step by step toward becoming a professional **back-end developer**.
+> The goal of this playground is to **master Spring Boot**, understand backend architecture, and grow step by step toward becoming a professional **Java Back-End Developer**.
 >
 > If you are learning too, use AI as a tool to understand better, not as a replacement for thinking.
 
@@ -14,157 +14,309 @@
 
 ## What This Project Is
 
-**Store** is my personal repository for learning **Spring Boot**.
+**Store** is my personal Spring Boot learning project.
 
-Having built a strong foundation in core Java (see my [JavaPlayGround](https://github.com/medhat/JavaPlayGround) repo), I am now moving into the world of frameworks. This project is where I experiment with Spring Boot's features, learn how to build enterprise-ready applications, and prepare for real-world backend roles.
+After building a strong foundation in core Java through my [JavaPlayGround](https://github.com/medhat/JavaPlayGround) repo, this project represents my transition into the Spring ecosystem and real backend development.
 
-This repository is used to:
+This repository is used to practice:
 
-* Transition from core Java to the Spring ecosystem
-* Understand Inversion of Control (IoC) and Dependency Injection (DI)
-* Learn Spring Boot's auto-configuration magic
-* Explore the various Spring annotations and their roles
-* Build RESTful APIs and handle web requests
-* Practice organizing code into layers (Controller, Service, Repository)
-* Learn how to manage application configuration and properties
-* Prepare for more advanced topics like Spring Data JPA, Security, and Microservices
+- Spring Boot fundamentals
+- Inversion of Control and Dependency Injection
+- Bean lifecycle and configuration
+- Spring MVC and web request handling
+- Layered backend architecture
+- Spring Data JPA basics
+- Reducing boilerplate code with Lombok
+- Database schema evolution using Flyway
+- Moving step by step toward production-style backend development
 
 ---
 
 ## Main Goal
 
-The main goal is to bridge the gap between "knowing Java" and "building professional backend systems."
+The main goal is to bridge the gap between **knowing Java** and **building professional backend systems**.
 
 **To master Spring Boot and become job-ready as a Java Back-End Developer, inshallah.**
 
-My current path is:
+My current learning path is:
 
-1.  Master Spring Core concepts (Beans, IoC, DI) [DONE]
-2.  Understand the Spring Bean Lifecycle [DONE]
-3.  Get comfortable with Spring MVC and REST controllers [IN PROGRESS]
-4.  Learn how to use Spring Boot Starters and Auto-configuration [DONE]
-5.  Move into Spring Data JPA and database integration [UPCOMING]
-6.  Implement validation and error handling
-7.  Learn Spring Security for authentication and authorization
-8.  Explore testing Spring Boot applications (JUnit, Mockito)
-9.  Build a complete, real-world backend project
-10. Become a capable and confident back-end developer, inshallah
+1. Master Spring Core concepts: Beans, IoC, DI **[DONE]**
+2. Understand the Spring Bean Lifecycle **[DONE]**
+3. Learn Spring Boot Starters and Auto-configuration **[DONE]**
+4. Get comfortable with Spring MVC and basic web controllers **[DONE / CONTINUING]**
+5. Learn how Lombok reduces Java boilerplate **[DONE / CONTINUING]**
+6. Move into Spring Data JPA and database integration **[IN PROGRESS]**
+7. Learn database migration with Flyway **[IN PROGRESS]**
+8. Implement validation and error handling **[UPCOMING]**
+9. Learn Spring Security for authentication and authorization **[UPCOMING]**
+10. Explore testing Spring Boot applications with JUnit and Mockito **[UPCOMING]**
+11. Build a complete real-world backend project **[UPCOMING]**
 
 ---
 
 ## What I Have Covered So Far
 
-I am currently moving from Spring Core fundamentals to Data and Persistence:
+I have completed the Spring Core foundation and started moving into persistence and database-backed applications.
 
-* **Inversion of Control (IoC) & Beans**: Understanding how Spring manages object creation and lifecycle.
-* **Dependency Injection (DI)**: Constructor, Setter, and Field injection.
-* **Bean Lifecycle**: Using `@PostConstruct` and `@PreDestroy` to manage bean initialization and cleanup.
-* **Bean Scopes & Lazy Loading**: Mastering `Singleton` vs `Prototype` and using `@Lazy` for performance optimization.
-* **Spring Annotations**:
-    * `@SpringBootApplication`, `@Component`, `@Service`, `@Controller`, `@Repository`.
-    * `@Autowired`, `@Primary`, `@Qualifier`.
-    * `@Value`, `@Configuration`, `@Bean`.
-    * `@RequestMapping`.
-* **Configuration**: Moving from `application.properties` to structured `application.yaml`.
-* **Layered Architecture & Repository Pattern**: Practicing clean code by separating concerns into Controllers, Services, and Repositories (using an In-Memory implementation for now).
-* **Web Basics**: Simple controllers and static content.
+### Spring Core Fundamentals
+
+- **Inversion of Control**
+  - Understanding how Spring manages object creation.
+  - Letting the container wire dependencies instead of manually creating objects everywhere.
+
+- **Dependency Injection**
+  - Constructor injection.
+  - Setter injection.
+  - Field injection.
+  - Understanding when constructor injection is usually preferred.
+
+- **Beans and Components**
+  - Using Spring stereotypes:
+    - `@Component`
+    - `@Service`
+    - `@Controller`
+    - `@Repository`
+
+- **Bean Configuration**
+  - Java-based configuration:
+    - `@Configuration`
+    - `@Bean`
+
+- **Bean Selection**
+  - Using:
+    - `@Primary`
+    - `@Qualifier`
+
+- **Bean Lifecycle**
+  - `@PostConstruct`
+  - `@PreDestroy`
+
+- **Bean Scopes and Lazy Loading**
+  - Singleton and prototype scopes
+  - Lazy initialization for performance optimization
+
+---
+
+## Spring Boot Features Covered
+
+- Maven project setup
+- Spring Boot application entry point
+- Auto-configuration basics
+- Externalized configuration using `application.yaml`
+- Static resources (`src/main/resources/static`)
+- Basic Spring MVC request handling
+- Maven dependency management
+
+---
+
+## Lombok Progress
+
+I have started using **Lombok** to reduce repetitive Java boilerplate code.
+
+Lombok generates automatically:
+
+- Getters / Setters
+- Constructors
+- `toString()`
+- `equals()` / `hashCode()`
+
+Used in:
+
+- Models
+- DTOs
+- JPA entities
+- Request/response objects
+
+This helps keep code cleaner and more maintainable.
+
+---
+
+## Spring MVC Progress
+
+I have started working with Spring MVC concepts:
+
+- Creating controllers
+- Handling basic requests
+- Serving static content
+- Understanding Spring Boot static resource handling
+
+Still progressing toward full REST API development.
+
+---
+
+## Persistence and Database Progress
+
+### Covered / Started
+
+- Introduction to persistence in Spring Boot
+- Creating model classes
+- Database integration basics
+- Schema evolution using migrations
+- Moving from manual DB changes to versioned structure
+
+### Flyway Database Migrations
+
+```
+src/main/resources/db.migration/
+├─ V1__initial_migration.sql
+├─ V2__add_profile.sql
+└─ V3__add_tags.sql
+```
+
+This introduces professional database version control using Flyway.
 
 ---
 
 ## Project Highlights
 
-### IoC and Dependency Injection
-I've practiced how to let Spring handle the "wiring" of the application. I've explored both annotation-based wiring and manual Java-based configuration using `@Configuration` and `@Bean`.
+### Spring Core Practice
 
-### Bean Lifecycle and Scopes
-Implemented lifecycle hooks (`@PostConstruct`, `@PreDestroy`) and experimented with different bean scopes like `Prototype` to understand how Spring manages object instances.
+- Bean creation and lifecycle
+- Dependency injection patterns
+- Multiple implementation handling
+- Configuration management
 
-### Layered Architecture
-Even in these early examples, I am practicing separating concerns:
-- **Web Layer**: Controllers to handle HTTP requests.
-- **Service Layer**: Business logic (like `OrderService` and `UserService`).
-- **Data Layer**: Initializing the repository pattern with `InMemoryUserRepository`.
-- **Notification Layer**: Abstracting communication (SMS, Email).
+### Lombok Usage
+
+Reduces boilerplate and prepares for cleaner backend architecture.
+
+### MVC and Static Content
+
+Basic web handling and static file serving.
+
+### Database Migration Practice
+
+Professional approach to schema versioning.
 
 ---
 
 ## Current Project Structure
 
-```text
-store/
+```
+Spring-Store/
 ├─ pom.xml
 ├─ README.md
+├─ mvnw
+├─ mvnw.cmd
 ├─ src/
 │  ├─ main/
 │  │  ├─ java/
 │  │  │  └─ com/
 │  │  │     └─ medhat/
 │  │  │        └─ store/
-│  │  │           ├─ StoreApplication.java       (Entry Point)
-│  │  │           ├─ AppConfig.java              (Java-Based Configuration)
-│  │  │           ├─ HomeController.java         (Web Controller)
-│  │  │           ├─ OrderService.java           (Lifecycle & Scopes)
-│  │  │           ├─ HeavyResource.java          (Lazy Initialization)
-│  │  │           ├─ PaymentService.java         (Interface)
-│  │  │           ├─ VCashPaymentService.java
-│  │  │           ├─ WaffarhaPaymentService.java
-│  │  │           ├─ notification/               (Sub-package)
-│  │  │           │  ├─ NotificationService.java
-│  │  │           │  ├─ EmailNotificationService.java
-│  │  │           │  ├─ SMSNotificationService.java
-│  │  │           │  └─ NotificationManager.java
-│  │  │           └─ user/                       (User Management Layer)
-│  │  │              ├─ User.java
-│  │  │              ├─ UserRepository.java      (Repository Interface)
-│  │  │              ├─ InMemoryUserRepository.java
-│  │  │              └─ UserService.java
+│  │  │           ├─ StoreApplication.java
+│  │  │           ├─ models/
+│  │  │           │  └─ User.java
+│  │  │           └─ archived/
+│  │  │              └─ earlier Spring Core learning examples
 │  │  └─ resources/
-│  │     ├─ application.yaml                     (Structured Configuration)
+│  │     ├─ application.yaml
+│  │     ├─ db.migration/
+│  │     │  ├─ V1__initial_migration.sql
+│  │     │  ├─ V2__add_profile.sql
+│  │     │  └─ V3__add_tags.sql
 │  │     └─ static/
 │  │        ├─ index.html
-│  │        └─ Notes.md                          (Personal Study Notes)
+│  │        └─ Notes.md
 │  └─ test/
-│     └─ java/
-│        └─ com/
-│           └─ medhat/
-│              └─ store/
-│                 └─ SoreApplicationTests.java   (Context Loading Test)
 ```
 
 ---
 
 ## Learning Roadmap
 
-### Current Stage: Spring Core & Fundamentals
-* [x] Spring Boot Project Setup (Maven)
-* [x] Understanding IoC and Beans
-* [x] Dependency Injection (Constructor, Setter, Field)
-* [x] Bean Lifecycle hooks (`@PostConstruct`, `@PreDestroy`)
-* [x] Bean Scopes (Singleton, Prototype) & Lazy Loading
-* [x] Java-Based Configuration (`@Configuration`, `@Bean`)
-* [x] Externalized Configuration (Properties & YAML)
-* [x] Basic Controllers and Request Mapping
+### Stage 1: Spring Core and Fundamentals
 
-### Next Stage: Data and Persistence (In Progress)
-* [x] Understanding the Repository Pattern
-* [x] Implementing In-Memory Repositories
-* [ ] Introduction to Spring Data JPA
-* [ ] Working with H2 and MySQL
-* [ ] Creating Entities and Repositories
-* [ ] CRUD Operations
-* [ ] Transaction Management
+- [x] Spring Boot setup
+- [x] IoC and DI
+- [x] Bean lifecycle
+- [x] Bean scopes
+- [x] Configuration
+- [x] YAML configuration
 
-### Advanced Backend Stage
-* [ ] REST API Best Practices (DTOs, ResponseEntities)
-* [ ] Exception Handling (`@ControllerAdvice`)
-* [ ] Bean Validation
-* [ ] Spring Security (JWT, OAuth2)
-* [ ] Unit and Integration Testing
+### Stage 2: Spring MVC
+
+- [x] Controllers
+- [x] Static resources
+- [ ] REST APIs
+- [ ] DTOs
+- [ ] Exception handling
+
+### Stage 3: Lombok
+
+- [x] Reduce boilerplate
+- [ ] Lombok best practices with JPA
+
+### Stage 4: Persistence
+
+- [x] Models
+- [x] Flyway setup
+- [ ] Spring Data JPA
+- [ ] Relationships
+- [ ] CRUD APIs
+
+### Stage 5: Advanced Backend
+
+- [ ] Validation
+- [ ] Security (Spring Security + JWT)
+- [ ] Testing
+- [ ] Production-ready API design
+
+---
+
+## Technologies Used
+
+- Java
+- Spring Boot
+- Spring MVC
+- Spring Data JPA
+- Lombok
+- Maven
+- Flyway
+- YAML
+- SQL
+
+---
+
+## How to Run
+
+```bash
+./mvnw spring-boot:run
+```
+
+Windows:
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+Open:
+
+```
+http://localhost:8080
+```
+
+---
+
+## Current Status
+
+This project now includes:
+
+- Spring Boot fundamentals
+- IoC / DI mastery
+- MVC basics
+- Lombok usage
+- Initial persistence design
+- Flyway migrations
+
+Next step: **Spring Data JPA + real CRUD APIs**
 
 ---
 
 ## Final Purpose
 
-This project is my "coding gym" for Spring Boot. It's where I make mistakes, learn from them, and build the discipline needed for a professional career.
+This is my Spring Boot coding gym — where I learn by building, breaking, and improving.
 
-**The mission is to master Spring Boot, unlock my potential as a developer, and build impactful backend systems, inshallah <3.**
+The goal is to become a strong backend developer capable of building real-world systems with confidence.
+
+**Mission: master Spring Boot and become job-ready, inshallah.**
