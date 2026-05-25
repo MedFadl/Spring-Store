@@ -1,8 +1,11 @@
 package com.medhat.store;
 
 import com.medhat.store.archived.OrderService;
-import com.medhat.store.archived.user.User;
 import com.medhat.store.archived.user.UserService;
+import com.medhat.store.models.Address;
+import com.medhat.store.models.Profile;
+import com.medhat.store.models.Tag;
+import com.medhat.store.models.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +20,7 @@ public class StoreApplication {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
         var registeration = context.getBean(UserService.class);
-        registeration.registerUser(new User("M@M.COM", 1234L, "123456", "Medhat"));
+        //registeration.registerUser(new User("M@M.COM", 1234L, "123456", "Medhat"));
 
 
         var orderservice = context.getBean(OrderService.class);
@@ -28,6 +31,31 @@ public class StoreApplication {
         //no need to handle it manually now.
         //var orderService = new OrderService(new WaffarhaPaymentService());
         //orderService.placeOrder();
+
+        var user = User.builder()
+                .email("M@M.COM")
+                .password("123456")
+                .name("Medhat")
+                .build();
+
+        var address = Address.builder()
+                .street("123 Main St")
+                .city("Anytown")
+                .state("Any")
+                .zip("12345")
+                .build();
+        var profile = Profile.builder()
+                .loyaltyPoints(0)
+                .build();
+
+        user.setProfile(profile);
+        profile.setUser(user);
+        user.addAddress(address);
+
+        var tag = new Tag("Normal User ");
+        
+        user.getTags().add(tag);
+        tag.getUsers().add(user);
     }
 
 }
