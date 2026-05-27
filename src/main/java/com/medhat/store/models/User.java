@@ -30,6 +30,17 @@ public class User {
     @Column(nullable = false , unique = true , name = "email")
     private String email;
 
+
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    @Builder.Default
+    private Set<Product> wishlist = new HashSet<>();
+
+
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private List<Address> addresses = new ArrayList<>();

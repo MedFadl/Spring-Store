@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,6 +30,9 @@ public class Profile {
 
     @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
+
+
+
 
     @OneToOne
     @JoinColumn(name = "id", nullable = false)

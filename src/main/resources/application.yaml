@@ -1,10 +1,16 @@
 spring:
   application:
     name: store
+
   datasource:
     url: jdbc:mariadb://localhost:3306/Store?createDatabaseIfNotExist=true
     username: root
     password: admin
+
+  jpa:
+    #hibernate:
+    # ddl-auto: update
+    show-sql: true
 
 server:
   port: 8080
@@ -12,22 +18,3 @@ server:
 app:
   page:
     size: 10
-
-vcash:
-  apiUrl: https://vcash.com/api/v1/
-  enabled: true
-  timeout: 10000
-  supportedCurrencies: USD,EUR,EGP
-
-waffarha:
-  apiUrl: https://waffarha.com/api/v1/
-  enabled: true
-  timeout: 10000
-  supportedCurrencies: USD,EUR,EGP
-
-payment:
-  default: waffarha
-
-mail:
-  host: smtp.gmail.com
-  port: 587
