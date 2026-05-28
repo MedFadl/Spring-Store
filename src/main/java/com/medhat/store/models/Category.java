@@ -1,8 +1,7 @@
 package com.medhat.store.models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +10,9 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "categories")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.medhat.store;
 
+import com.medhat.store.transactions.ProductService;
 import com.medhat.store.transactions.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +11,11 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        context.getBean(UserService.class).showEntityState();
-        context.getBean(UserService.class).showAddress();
-        context.getBean(UserService.class).deleteAddress();
+        //context.getBean(UserService.class).showEntityState();
+        //context.getBean(UserService.class).showAddress();
+        //context.getBean(UserService.class).deleteAddress();
+        //context.getBean(ProductService.class).createProduct();
+        context.getBean(ProductService.class).productToWishlist();
     }
 
 }
