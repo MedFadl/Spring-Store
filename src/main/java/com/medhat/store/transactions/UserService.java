@@ -1,7 +1,8 @@
 package com.medhat.store.transactions;
 
-
+import com.medhat.store.models.Address;
 import com.medhat.store.models.User;
+import com.medhat.store.repositories.AddressRepository;
 import com.medhat.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -10,39 +11,59 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-
 public class UserService {
-    private final UserRepository userRepo;
-    private EntityManager entityManager;
 
-  /*   @Transactional
-   public void showEntityState() {
+    private final UserRepository userRepo;
+    private final AddressRepository addressRepo;
+    private final EntityManager entityManager;
+
+    @Transactional
+    public void showEntityState() {
+
         var user = User.builder()
-                .email("M@Mx.COM")
+                .email("Medhat@s.COM")
                 .password("123456")
                 .name("Medhatx")
                 .build();
-        if (entityManager.contains(user))
-        {
+
+        // TRANSIENT STATE
+        if (entityManager.contains(user)) {
             System.out.println("Persistent");
+        } else {
+            System.out.println("Transient / Detached");
         }
-        else
-        {
-            System.out.println("Transit / Deattached");
-        }
+
+        var address = Address.builder()
+                .city("Giza")
+                .street("1121 st")
+                .zip("123123")
+                .state("non")
+                .build();
+
+        // synchronize both sides
+        address.setUser(user);
+        user.getAddresses().add(address);
+
+        // save parent only
         userRepo.save(user);
-        if(entityManager.contains(user))
-        {
+
+        // PERSISTENT STATE
+        if (entityManager.contains(user)) {
             System.out.println("Persistent");
+        } else {
+            System.out.println("Transient / Detached");
         }
-        else
-        {
-            System.out.println("Transit / Deattached");
-        }
-        userRepo.findById(1L).orElseThrow();
+    }
 
-    }*/
+    public void showAddress() {
 
+        var address = addressRepo.findById(1L)
+                .orElseThrow();
 
+        System.out.println(address);
+    }
 
+    public void deleteAddress(){
+        addressRepo.deleteById(1L);
+    }
 }

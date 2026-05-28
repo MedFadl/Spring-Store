@@ -41,7 +41,7 @@ public class User {
     private Set<Product> wishlist = new HashSet<>();
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = {CascadeType.PERSIST , CascadeType.REMOVE} , orphanRemoval = true)
     @Builder.Default
     private List<Address> addresses = new ArrayList<>();
 
