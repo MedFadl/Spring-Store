@@ -1,6 +1,8 @@
 package com.medhat.store;
 
+import com.medhat.store.models.Profile;
 import com.medhat.store.transactions.ProductService;
+import com.medhat.store.transactions.ProfileService;
 import com.medhat.store.transactions.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +18,10 @@ public class StoreApplication {
         //context.getBean(UserService.class).deleteAddress();
         //context.getBean(ProductService.class).createProduct();
         //context.getBean(ProductService.class).productToWishlist();
-        context.getBean(UserService.class).fetchUserByAddress();
+        //context.getBean(UserService.class).fetchUserByAddress();
+        //context.getBean(UserService.class).showEntityState();
+        //context.getBean(ProfileService.class).addProfileToUser();
+        context.getBean(ProfileService.class).fetchProfile();
     }
 
 }
