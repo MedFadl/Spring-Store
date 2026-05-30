@@ -1,13 +1,19 @@
 package com.medhat.store.transactions;
 
 import com.medhat.store.models.Address;
+import com.medhat.store.models.Product;
 import com.medhat.store.models.User;
 import com.medhat.store.repositories.AddressRepository;
+import com.medhat.store.repositories.ProductRepository;
 import com.medhat.store.repositories.UserRepository;
+import com.medhat.store.repositories.specifications.ProductSpec;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 @AllArgsConstructor
@@ -15,6 +21,7 @@ public class UserService {
 
     private final UserRepository userRepo;
     private final AddressRepository addressRepo;
+    private final ProductRepository productRepo;
     private final EntityManager entityManager;
 
     @Transactional
@@ -83,6 +90,21 @@ public class UserService {
             u.getAddresses().forEach(System.out::println);
         });
 
+    }
+    public void fetchProductsBySpecifications(String name, BigDecimal minPrice, BigDecimal maxPrice) {
+        Specification<Product> spec = Specification.where((Specification<Product>) null);
+
+        if (name != null) {
+            spec = spec.and(ProductSpec.hasName(name));
+        }
+        if (minPrice != null) {
+            spec = spec.and(ProductSpec.hasPriceGreaterThanOrEqualTo(minPrice));
+        }
+        if (maxPrice != null) {
+            spec = spec.and(ProductSpec.hasPriceLessThanOrEqualTo(maxPrice));
+        }
+
+        productRepo.findAll(spec).forEach(System.out::println);
     }
 
 }

@@ -5,6 +5,7 @@ import com.medhat.store.models.Product;
 import com.medhat.store.projections.ProductSummary;
 import com.medhat.store.projections.ProductSummaryDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,7 +14,7 @@ import org.springframework.data.repository.query.Param;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> , ProductCriteriaAPI , JpaSpecificationExecutor<Product> {
 
     // =========================================================
     // BASIC STRING QUERIES
@@ -123,8 +124,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             @Param("max") BigDecimal max
     );
 
-    @Query("select p.id , p.name from Product p where p.category = :category")
-    List<ProductSummary> findByCategory(@Param("category") Category category);
     //when we use class we do differnet projection by typing new com.medhat.store.projections.blabla(p.id,p.name)
 
 

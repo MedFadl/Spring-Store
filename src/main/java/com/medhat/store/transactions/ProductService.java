@@ -70,10 +70,6 @@ public class ProductService {
         user.getWishlist().add(product);
     }
 
-    public void fetchProducts(){
-       var products = productRepository.findByCategory(new Category((byte) 1));
-       products.forEach(System.out :: println);
-    }
 
     public void fetchProductByExample(){
         var product = new Product();
@@ -88,4 +84,10 @@ public class ProductService {
         var products = productRepository.findAll(example);
         products.forEach(System.out::println);
     }
+
+    public void fetchProductsByCriteria() {
+        var products = productRepository.findByCategory("prod", BigDecimal.valueOf(1), null);
+        products.forEach(System.out::println);
+    }
+
 }
