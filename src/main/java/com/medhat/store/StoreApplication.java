@@ -22,6 +22,7 @@ public class StoreApplication {
         //context.getBean(UserService.class).showEntityState();
         //context.getBean(ProfileService.class).addProfileToUser();
         context.getBean(ProfileService.class).fetchProfile();
+        context.getBean(ProductService.class).fetchProductByExample();
     }
 
 }

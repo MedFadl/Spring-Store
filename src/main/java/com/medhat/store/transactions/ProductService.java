@@ -8,6 +8,8 @@ import com.medhat.store.repositories.ProductRepository;
 import com.medhat.store.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -71,5 +73,19 @@ public class ProductService {
     public void fetchProducts(){
        var products = productRepository.findByCategory(new Category((byte) 1));
        products.forEach(System.out :: println);
+    }
+
+    public void fetchProductByExample(){
+        var product = new Product();
+        product.setName("p");
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withIgnoreNullValues()
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+
+
+        Example<Product> example = Example.of(product, matcher);
+
+        var products = productRepository.findAll(example);
+        products.forEach(System.out::println);
     }
 }
