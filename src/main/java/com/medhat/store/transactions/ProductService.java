@@ -67,4 +67,9 @@ public class ProductService {
 
         user.getWishlist().add(product);
     }
+
+    public void fetchProducts(){
+       var products = productRepository.findByCategory(new Category((byte) 1));
+       products.forEach(System.out :: println);
+    }
 }

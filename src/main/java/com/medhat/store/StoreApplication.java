@@ -15,7 +15,8 @@ public class StoreApplication {
         //context.getBean(UserService.class).showAddress();
         //context.getBean(UserService.class).deleteAddress();
         //context.getBean(ProductService.class).createProduct();
-        context.getBean(ProductService.class).productToWishlist();
+        //context.getBean(ProductService.class).productToWishlist();
+        context.getBean(UserService.class).fetchUserByAddress();
     }
 
 }

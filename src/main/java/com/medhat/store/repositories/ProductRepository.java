@@ -1,6 +1,9 @@
 package com.medhat.store.repositories;
 
+import com.medhat.store.models.Category;
 import com.medhat.store.models.Product;
+import com.medhat.store.projections.ProductSummary;
+import com.medhat.store.projections.ProductSummaryDTO;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -118,6 +121,10 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
             @Param("min") BigDecimal min,
             @Param("max") BigDecimal max
     );
+
+    @Query("select p.id , p.name from Product p where p.category = :category")
+    List<ProductSummary> findByCategory(@Param("category") Category category);
+    //when we use class we do differnet projection by typing new com.medhat.store.projections.blabla(p.id,p.name)
 
 
     // =========================================================

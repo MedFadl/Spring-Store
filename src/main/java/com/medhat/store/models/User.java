@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor //to make an empty constructor
 @Builder // adding builder methods that looks just like  a stream and ends with .build()
 @Table(name = "users")
-@ToString // if i keep to put ToString annotation, it will print all the fields of the class so i have to exclude some
+// if i keep to put ToString annotation, it will print all the fields of the class so i have to exclude some
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //because id is auto incremented
@@ -84,5 +84,13 @@ public class User {
             tags.remove(tag);
             tag.getUsers().remove(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "email = " + email + ")";
     }
 }

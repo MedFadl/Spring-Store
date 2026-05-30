@@ -63,7 +63,26 @@ public class UserService {
         System.out.println(address);
     }
 
-    public void deleteAddress(){
+    public void deleteAddress() {
         addressRepo.deleteById(1L);
     }
+
+    @Transactional
+    public void fetchUser()
+    {
+        var user = userRepo.findByEmail("Medhat@s.COM").orElseThrow();
+        System.out.println(user.getId());
+
+    }
+
+    public void fetchUserByAddress()
+    {
+        var users = userRepo.findAllWithAddress();
+        users.forEach(u -> {
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println);
+        });
+
+    }
+
 }
